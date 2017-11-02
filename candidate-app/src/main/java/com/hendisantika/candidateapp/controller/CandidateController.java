@@ -1,5 +1,6 @@
 package com.hendisantika.candidateapp.controller;
 
+import com.hendisantika.candidateapp.dto.SearchData;
 import com.hendisantika.candidateapp.entity.Candidate;
 import com.hendisantika.candidateapp.service.CandidateService;
 import org.springframework.beans.factory.annotation.Autowired;
