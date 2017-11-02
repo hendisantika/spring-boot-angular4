@@ -1,4 +1,4 @@
-package com.hendisantika.candidateapp.candidateapp;
+package com.hendisantika.candidateapp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
