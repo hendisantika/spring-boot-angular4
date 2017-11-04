@@ -1,17 +1,17 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {Http, RequestOptions, Headers} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 import {Candidate} from '../interfaces/candidate';
-import {RequestOptions} from 'http';
 import {SearchData} from './searchdata';
 
 
-let url: string = 'http://localhost:8080/api/candidate';
+const url = 'http://localhost:8080/api/candidate';
 
 @Injectable()
-export class CandidateService{
-  constructor(private http: Http){
+export class CandidateService {
+  constructor(private http: Http) {
+
   }
 
   findAll(){
@@ -20,10 +20,10 @@ export class CandidateService{
       .catch(this.handleError);
   }
 
-  save(candidate: Candidate){
-    let header: new Headers({'Content-Type' : 'application/json', 'Cache-Control' : 'no-cache'});
-    let option: new RequestOptions({headers: header});
-    return this.http.post(url, candidate, option)
+  save(candidate: Candidate) {
+    let headers = new Headers ({'Content-Type' : 'application/json', 'Cache-Control' : 'no-cache'});
+    let options = new RequestOptions ({ headers : headers });
+    return this.http.post(url, candidate, options)
       .map(res => res.json())
       .catch(this.handleError);
   }
@@ -35,8 +35,8 @@ export class CandidateService{
   }
 
   search(searchData: SearchData){
-    let header: new Headers({'Content-Type' : 'application/json', 'Cache-Control' : 'no-cache'});
-    let option: new RequestOptions({headers: header});
+    const header = new Headers ({'Content-Type' : 'application/json', 'Cache-Control' : 'no-cache'});
+    const option = new RequestOptions ({headers: header});
     return this.http.post(url, searchData, option)
       .map(res => res.json())
       .catch(this.handleError);
