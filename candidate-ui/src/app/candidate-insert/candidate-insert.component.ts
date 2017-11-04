@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Candidate} from "../../interfaces/candidate";
+import {CandidateService} from "../../services/candidate.service";
 
 @Component({
   selector: 'app-candidate-insert',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CandidateInsertComponent implements OnInit {
 
-  constructor() { }
+  candidate: Candidate = new Candidate();
+
+  constructor(private candidateService : CandidateService) { }
 
   ngOnInit() {
   }
