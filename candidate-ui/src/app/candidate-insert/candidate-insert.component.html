@@ -28,12 +28,12 @@
           <option value="UI Designer">UI Designer</option>
         </select>
       </div>
-      <!--<div class="form-group">-->
-        <!--<label for="myimage">Candidate Photo</label>-->
-        <!--<input type="file" (change)="handleFileSelect($event)" placeholder="Choose file..." accept="image/*" />-->
-      <!--</div>-->
+      <div class="form-group">
+        <label for="myimage">Candidate Photo</label>
+        <input type="file" (change)="handleFileSelect($event)" placeholder="Choose file..." accept="image/*" />
+      </div>
       <div class="form-group pull-right">
-        <a (click)="saveCandidate()" class="btn btn-success">Save Candidate</a>
+        <a (click)="onProcessSaved()" class="btn btn-success">Save Candidate</a>
       </div>
     </div>
     <div class="col-lg-2"></div>
