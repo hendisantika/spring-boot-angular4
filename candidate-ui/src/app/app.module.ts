@@ -7,6 +7,14 @@ import { AppComponent } from './app.component';
 import { CandidateInsertComponent } from './candidate-insert/candidate-insert.component';
 import {CandidateService} from "../services/candidate.service";
 import { CandidateListComponent } from './candidate-list/candidate-list.component';
+import Any = jasmine.Any;
+import {RouterModule} from "@angular/router";
+
+export const AppRoutes: Any = [
+  {path : "", component : AppComponent},
+  {path : "list", component : CandidateListComponent},
+  {path : "insert", component : CandidateInsertComponent}
+]
 
 @NgModule({
   declarations: [
@@ -17,7 +25,8 @@ import { CandidateListComponent } from './candidate-list/candidate-list.componen
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(AppRoutes, {useHash: true})
   ],
   providers: [CandidateService],
   bootstrap: [AppComponent]
