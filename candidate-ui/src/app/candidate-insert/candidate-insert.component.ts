@@ -13,7 +13,7 @@ export class CandidateInsertComponent implements OnInit {
 
   candidate: Candidate = new Candidate();
 
-  constructor(private candidateService: CandidateService) { }
+  constructor(private candidateService: CandidateService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -22,6 +22,7 @@ export class CandidateInsertComponent implements OnInit {
     // this.candidate.photo = "test";
     this.candidateService.save(this.candidate).subscribe(output => {
       console.log(output);
+    this.router.navigate(["list"]);
     }, error => {
       console.log(error);
     });
