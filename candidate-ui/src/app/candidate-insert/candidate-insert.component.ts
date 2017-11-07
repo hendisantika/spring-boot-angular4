@@ -18,8 +18,8 @@ export class CandidateInsertComponent implements OnInit {
   ngOnInit() {
   }
 
-  onProcessSaved(){
-    this.candidate.photo = 'test';
+  saveCandidate() {
+    // this.candidate.photo = "test";
     this.candidateService.save(this.candidate).subscribe(output => {
       console.log(output);
     }, error => {
@@ -28,8 +28,8 @@ export class CandidateInsertComponent implements OnInit {
   }
 
   handleFileSelect(evt) {
-    var files: evt.target.files;
-    var file: files[0];
+    var files = evt.target.files;
+    var file = files[0];
 
     if (files && file) {
       var reader = new FileReader();
