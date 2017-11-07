@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <h3 class="text-center">List Candidate</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <table class="table table-striped">
+        <thead>
+        <tr style="font-weight: bold">
+          <td>No.</td>
+          <td>Full Name</td>
+          <td>Phone</td>
+          <td>Email</td>
+          <td>Address</td>
+          <td>Photo</td>
+          <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let candidate of candidates; let i = index">
+          <td>{{ i+1 }}</td>
+          <td>{{ candidate.fullName }}</td>
+          <td>{{ candidate.phone }}</td>
+          <td>{{ candidate.email }}</td>
+          <td>{{ candidate.address }}</td>
+          <td>
+                  <span *ngIf="candidate.photo">
+                  <img src="data:image/jpg;base64,{{ candidate.photo }}" class="img-responsive" width="100px"/>
+                </span>
+          </td>
+          <td class="text-right">
+            <a (click)="deleteCadidate(candidate.id)" class="btn btn-danger">Delete</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
