@@ -31,4 +31,14 @@ export class CandidateListComponent implements OnInit {
       });
   }
 
+  deleteCandidate(id) {
+    this.candidateService.delete(id).subscribe(output => {
+      if (output) {
+        this.loadCadidate();
+      }
+    }, error => {
+      console.log(error);
+    })
+  }
+
 }
