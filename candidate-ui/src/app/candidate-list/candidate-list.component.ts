@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CandidateService} from "../../services/candidate.service";
 import {Candidate} from "../../interfaces/candidate";
+import {SearchData} from "../../services/searchdata";
 
 @Component({
   selector: 'app-candidate-list',
@@ -10,6 +11,7 @@ import {Candidate} from "../../interfaces/candidate";
 export class CandidateListComponent implements OnInit {
 
   candidates: Candidate[];
+  searchData: SearchData = new SearchData();
 
   constructor(private candidateService: CandidateService) {
   }
@@ -39,6 +41,17 @@ export class CandidateListComponent implements OnInit {
     }, error => {
       console.log(error);
     })
+  }
+
+  onSearch() {
+    this
+      .candidateService
+      .search(this.searchData)
+      .subscribe(data => {
+        this.candidates = data;
+      }, error => {
+        console.log(error.message);
+      });
   }
 
 }
