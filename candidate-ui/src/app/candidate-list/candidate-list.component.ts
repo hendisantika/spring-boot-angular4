@@ -82,5 +82,4 @@ export class CandidateListComponent implements OnInit {
         console.log(error.message);
       });
   }
-
 }
