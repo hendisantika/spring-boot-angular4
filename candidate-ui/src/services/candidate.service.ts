@@ -3,7 +3,7 @@ import {Http, RequestOptions, Headers} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 import {Candidate} from '../interfaces/candidate';
-import {SearchData} from './searchdata';
+import {SearchData} from '../interfaces/searchdata';
 
 
 const url = 'http://localhost:8080/api/candidate';
@@ -14,8 +14,16 @@ export class CandidateService {
 
   }
 
-  findAll(){
+  findAll() {
     return this.http.get(url)
+      .map(res => res.json())
+      .catch(this.handleError);
+  }
+
+  findById(id : string) {
+    return this
+      .http
+      .get(url + '/' + id)
       .map(res => res.json())
       .catch(this.handleError);
   }
@@ -34,16 +42,16 @@ export class CandidateService {
       .catch(this.handleError);
   }
 
-  search(searchData: SearchData){
+  search(search: SearchData) {
     const header = new Headers ({'Content-Type' : 'application/json', 'Cache-Control' : 'no-cache'});
     const option = new RequestOptions ({headers: header});
-    return this.http.post(url, searchData, option)
+    return this.http.post(url, search, option)
       .map(res => res.json())
       .catch(this.handleError);
 
   }
 
-  handleError(error){
+  handleError(error) {
     return Observable.throw(error.json() || 'Server Error');
   }
 }
