@@ -20,7 +20,7 @@ export class CandidateService {
       .catch(this.handleError);
   }
 
-  findById(id : string) {
+  findById(id: string) {
     return this
       .http
       .get(url + '/' + id)
@@ -36,7 +36,7 @@ export class CandidateService {
       .catch(this.handleError);
   }
 
-  delete(id){
+  delete(id) {
     return this.http.delete(url + '/' + id)
       .map(res => res.json())
       .catch(this.handleError);
@@ -45,7 +45,7 @@ export class CandidateService {
   search(search: SearchData) {
     const header = new Headers ({'Content-Type' : 'application/json', 'Cache-Control' : 'no-cache'});
     const option = new RequestOptions ({headers: header});
-    return this.http.post(url, search, option)
+    return this.http.post(url + '/search', option)
       .map(res => res.json())
       .catch(this.handleError);
 
