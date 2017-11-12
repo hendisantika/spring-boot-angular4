@@ -45,7 +45,7 @@ export class CandidateService {
   search(search: SearchData) {
     const header = new Headers ({'Content-Type' : 'application/json', 'Cache-Control' : 'no-cache'});
     const option = new RequestOptions ({headers: header});
-    return this.http.post(url + '/search', option)
+    return this.http.post(url + '/search', search, option)
       .map(res => res.json())
       .catch(this.handleError);
 
