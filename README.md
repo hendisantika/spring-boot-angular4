@@ -7,3 +7,6 @@
 1. Go to `candidate-app` folder then paste this command `mvn clean spring-boot:run`.
 2. Go to `candidate-ui` folder then paster this command `npm install` then `ng serve`.
 
+![Home](img/home.png)
+
+![Insert Data Candidate](img/insert.png)
