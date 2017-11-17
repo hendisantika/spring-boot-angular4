@@ -5,7 +5,8 @@
       <div class="row">
         <div class="col-lg-4 pull-right">
           <div class="input-group">
-            <input type="text" class="form-control" [(ngModel)]="searchData.searchKey" placeholder="Search name...">
+            <!--<input type="text" class="form-control" (input)="onSearch()" [(ngModel)]="searchData.searchKey" placeholder="Search name...">-->
+            <input type="text" class="form-control" (keyup.enter)="onSearch()" [(ngModel)]="searchData.searchKey" placeholder="Search name...">
             <span class="input-group-btn">
               <a (click)="onSearch()" class="btn btn-info">Search</a>
             </span>
