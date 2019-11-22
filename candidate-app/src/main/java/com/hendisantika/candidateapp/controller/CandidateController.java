@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by IntelliJ IDEA.
@@ -31,7 +32,7 @@ public class CandidateController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
-    public Candidate findById(@PathVariable String id) {
+    public Optional<Candidate> findById(@PathVariable String id) {
         return service.findById(id);
     }
 

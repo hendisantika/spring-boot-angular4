@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Created by IntelliJ IDEA.
@@ -29,8 +30,8 @@ public class CandidateService {
         return repo.save(candidate);
     }
 
-    public Candidate findById(String id) {
-        return repo.findOne(id);
+    public Optional<Candidate> findById(String id) {
+        return repo.findById(id);
     }
 
     public List<Candidate> findAll() {
@@ -42,7 +43,7 @@ public class CandidateService {
     }
 
     public boolean delete(String id) {
-        repo.delete(id);
+        repo.deleteById(id);
         return true;
     }
 
